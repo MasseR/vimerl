@@ -1,109 +1,194 @@
--module(foo).
--export([foo/1]).
+-module(test).
+
+-export([foo/0,
+         baaaaar/2,
+         baaaaaaaaa/4
+        ]).
+
 -export([
-	bar/1,
-	baz/2
-]).
+            foo/1,
+            baaaaar/2,
+            baaaaaaaaa/4]).
 
--export([start/0,stop/0, foo/2]).
+-spec foo(X) -> {ok, Key} | {false, X} when
+    X :: iter(),
+    Key :: integer().
 
--compile(export_all).
--copyright("foobar").
--vsn("$Rev: ").
+foo() ->
+    bar(fun foo/0,
+        1,
+        2,
+        3
+       ),
+    X = 1 + 2 +
+        3 + 4,
+    Y = case foo() of
+        foo ->
+            bar()
+    end,
+    ok.
 
--behaviour(foo).
+foo() ->
+    fuuuuuuuuuuuuur(
+        1,
+        2
+        ),
+    ok.
 
--define(AO(Aeu), ok).
--ifdef(AO).
--endif(AO).
+fooooooooo(X,
+           Y) when
+        X =:= Y ->
+    ok.
 
--ifndef(FOO).
--define(FOO, true).
--else.
--define(FOO, false).
--endif.
+foo() ->
+    case foo() of
+        bar ->
+            catch fii();
+        fuu() ->
+            ber()
+    end.
 
-start() -> foo(), bar().
+foo() ->
+    case foo() of
+        bar ->
+            X = catch fii();
+        fuu() ->
+            ber()
+    end.
 
-foo(#foo{bar = Bar, test = Test}) ->
-	foo([1,2,3]).
+foo() ->
+    X = try
+        foo()
+    catch
+        foo when
+                foo ->
+            bar()
+    after
+        bar()
+    end.
 
-foo(Nay) ->
-	1,
-	2,
-	3;
-bar(Yay) ->
-	hey_this_works.
+foo() ->
+    try
+        foo()
+    catch
+        foo when
+                foo ->
+            bar()
+    after
+        bar()
+    end.
 
-% aoeunth\aoeunth
-foo([H | List]) when not is_list(List) ->
-	List-List andalso (not X or Y) orelse Bar,
-	23.23,
-	1 bsl 2,
-	foo:bar(),
-	foo_bar(23), % and me?
-	case foo(23) of
-		bar -> Yay;
-		foo -> case lol(bar) of
-				oe -> OK;
-				noy -> Fjo
-			end
-	end,
-	receive
-		Foo -> ok
-	after
-		2000 -> error
-	end,
-	case catch bar(foo) of
-		aonue -> aoe;
-		aoeu -> if
-				Foo -> Yay;
-				aoue -> ok
-			end
-	end,
-	1 = 2,
-	([1,2] ++ [3,4]) -- [5],
-	1 * 2/23+23-23,
-	(((1 < 2) =:= (2 >= 2)) =/= (2 /= 2)) == true,
-	yes,
-	case catch foo(bar) of
-		X or Y -> fun bar/2;
-		foo    -> exit(normal)
-	end,
-	foo:put(),
-	ferlang:put()
-	erlang:make_tuple(...),
-	erlang:put(),
-	put(),
-	2#23 - 1.34e-2 + 2.23e2 div 1.5,
-	"{\"foobar~10.5c",
-	Pid ! foo,
-	?aeo,
-	1234 
-	$a,
-	true, 
-	$A,
-	$\",
-	"Yes this is \" true",
-	<<Variable:16, 23:8/binary>>,
-	[$\ , $B, $\B, $%, $", $\"],
-	#foobar{Xyz, baz, Baz},
-	[X || X <- lists:seq(2,5)],
-	case foobar(Ost) of
-		X -> ok;
-		Y -> if
-			Bar == 1 -> foo;
-			Bar == 2 -> bar
-		end
-	end,
-	exit(foo),
-	[onth, Ost],
-	'fooBarZ-aou,2',
-	bar(List).
+foo() ->
+    try
+        foo(),
+        bar()
+    of
+        foo when
+                bar == 2 ->
+            foo(),
+            bar();
+        bar ->
+            foo
+    end.
 
-bar(Atom) when not is_tuple(List) ->
-	baz(Atom, atom);
-bar(List) -> % this is a list
-	baz(list, List).
+foo() ->
+    try
+        foo(),
+        bar()
+    of
+        foo when
+                bar == 2 ->
+            foo(),
+            bar();
+        bar ->
+            foo
+    after
+        foo(),
+        bar()
+    end.
 
-stop() -> ok.
+foo() ->
+    try
+        foo(),
+        bar()
+    of
+        foo when
+                bar == 2 ->
+            foo(),
+            bar();
+        bar ->
+            foo
+    after
+        foo(),
+        bar()
+    end.
+
+foo() ->
+    try
+        foo(),
+        bar()
+    of
+        foo when
+                bar == 2 ->
+            foo(),
+            bar();
+        bar ->
+            foo
+    catch
+        foo when
+                foo ->
+            foo
+    after
+        foo(),
+        bar()
+    end.
+
+foo() ->
+    receive
+    after
+        1000 ->
+            bar()
+    end.
+
+foo() ->
+    receive
+        foo when
+                foo ->
+            foo()
+    end.
+
+foo() ->
+    receive
+        foo when
+                foo ->
+            foo()
+    after
+        1000 ->
+            bar()
+    end.
+
+foo() ->
+    if
+        foo ->
+            bar();
+        bar ->
+            foo()
+    end.
+
+foo() ->
+    case foo() of
+        foo when
+                bar ->
+            foo();
+        bar ->
+    end.
+
+foo() ->
+    case
+        foo()
+    of
+        foo when
+                bar ->
+            foo();
+        bar ->
+    end.
